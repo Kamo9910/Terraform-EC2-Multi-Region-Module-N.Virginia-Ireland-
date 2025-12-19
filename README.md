@@ -1,0 +1,2 @@
+# Terraform-EC2-Multi-Region-Module-N.Virginia-Ireland-
+This project demonstrates how to build a reusable Terraform module that provisions EC2 instances with Elastic IPs in multiple AWS regions. Specifically, the module deploys: One EC2 instance in North Virginia, One EC2 instance in Ireland , One Elastic IP associated with each EC2 instance, Region-specific AMIs to ensure compatibility per region
