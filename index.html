@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
+    <title>Terraform with AWS</title>
+</head>
+<body>
+        <div class="centered-text">
+
+        <h1>Terraform EC2 Multi-Region Module (N.Virginia & Ireland)</h1>
+        
+        <img class="myImage" src="Developer.gif" alt="Terraform" style="transition: transform 0.3s ease;" height="50%" width="50%">
+        
+        <h2>Project Overview:</h2>
+        <p>This project demonstrates how to build a reusable Terraform module that provisions EC2 instances with Elastic IPs in multiple AWS regions. Specifically, the module deploys: One EC2 instance in North Virginia (us-east-1), One EC2 instance in Ireland (eu-west-1), One Elastic IP associated with each EC2 instance, Region-specific AMIs to ensure compatibility per region. The goal of this project is to showcase Infrastructure as Code (IaC) best practices, multi-region AWS deployments, and Terraform module design suitable for a professional GitHub portfolio.</p>
+        <h3>Architecture Overview</h3>
+        <p>Terraform module creation and reuse. <br>
+           Multi-region AWS provider configuration. <br>
+           EC2 provisioning using region-specific AMIs <br>
+           Elastic IP allocation and association <br>
+           Clean, readable, and production-style Terraform code <br>
+           GitHub-ready documentation </p>
+
+         <h3>Steps taken to complets this project :</h3>
+            <h4>1. Create a GitHub Repository</h4>
+            <img class="myImage" src="Screenshot (1).png" alt="GitHub" style="transition: transform 0.3s ease;" height="50%" width="50%">
+             <br>
+            <img class="myImage" src="Screenshot (2).png" alt="GitHub" style="transition: transform 0.3s ease;" height="50%" width="50%">
+            <p>- Create a new GitHub Repository<br>
+               - Enable Add README </p>
+            <br>
+            <h4>2. Define Multiple AWS Providers</h4>
+            <img class="myImage" src="Screenshot (3).png" alt="Terraform" style="transition: transform 0.3s ease;" height="50%" width="50%">
+            <p>- Configure two AWS providers using aliases to support multiple regions<br>
+               - This allows Terraform to manage resources in both regions within the same project </p>
+            <br>
+            <h4>3. Create EC2 instances, Allocate and Associate Elastic IPs, Define Outputs</h4>
+            <img class="myImage" src="Screenshot (4).png" alt="Terraform" style="transition: transform 0.3s ease;" height="50%" width="50%">
+            <br>
+            <img class="myImage" src="Screenshot (5).png" alt="Terraform" style="transition: transform 0.3s ease;" height="50%" width="50%">
+            <p>- Define an EC2 instance for N.Virginia using default provider<br>
+               - Define an EC2 instance for Ireland using the aliased provider <br>
+               - Reference region specific AMI variables<br>
+               - Each EC2 instances is created independently but managed from the same module<br>
+               - Create an Elastic IP resource <br>
+               - Associate the Elastic IP with its corresponding EC2 instance <br> 
+               - This ensures each instances has a static public IP adress <br>
+               - Expose useful information such as EC2 instance ID <br>
+               - Output make the module easier to intergrate with other Terraform configuration </p>
+            <br>
+            <h4>4. Initialize Terraform</h4>
+            <img class="myImage" src="Screenshot (6).png" alt="Terraform" style="transition: transform 0.3s ease;" height="50%" width="50%">
+            <p>Run the command to initialize the project: terraform init<br>
+              - This downloads providers and prepares the module for deployment.</p>
+            <br>
+            <h4>5.Review the Execution Plan</h4>
+            <img class="myImage" src="Screenshot (7).png" alt="Terraform" style="transition: transform 0.3s ease;" height="50%" width="50%">
+            <br>
+            <img class="myImage" src="Screenshot (8).png" alt="Terraform" style="transition: transform 0.3s ease;" height="50%" width="50%">
+            <p>- Generate and Review the Terraform execution plan: terraform plan <br>
+               - Verify One EC2 instance will be created in us-east-1 <br>
+               - Verify One EC2 instance will be created in eu-west-1 <br>
+               - Elastic IPs will be associated correctly</p>
+
+            <h4>6. Apply the Configuration</h4>
+            <img class="myImage" src="Screenshot (9).png" alt="Terraform" style="transition: transform 0.3s ease;" height="50%" width="50%">
+            <br>
+            <img class="myImage" src="Screenshot (10).png" alt="Terraform" style="transition: transform 0.3s ease;" height="50%" width="50%">
+            <br>
+            <img class="myImage" src="Screenshot (11).png" alt="Terraform" style="transition: transform 0.3s ease;" height="50%" width="50%">
+            <br>
+            <img class="myImage" src="Screenshot (12).png" alt="Terraform" style="transition: transform 0.3s ease;" height="50%" width="50%">
+            <p>- Deploy the Infrastructure: terraform apply<br>
+               - Terraform will Provision EC2 instances in both regions, Allocate and attach Elastic IPs</p>
+            <br>
+            <h4>Verify in AWS Console</h4>
+            <img class="myImage" src="Screenshot (13).png" alt="Terraform" style="transition: transform 0.3s ease;" height="50%" width="50%">
+            <br>
+            <img class="myImage" src="Screenshot (14).png" alt="Terraform" style="transition: transform 0.3s ease;" height="50%" width="50%">
+            <br>
+            <img class="myImage" src="Screenshot (15).png" alt="Terraform" style="transition: transform 0.3s ease;" height="50%" width="50%">
+            <br>
+            <img class="myImage" src="Screenshot (16).png" alt="Terraform" style="transition: transform 0.3s ease;" height="50%" width="50%">
+            <p>- Log into the AWS Console <br>
+               - Confirm EC2 instances exist in both regions <br>
+               - Confirm Elastic IPs are correctly associated <br>
+               - Confirm Tags are applied as expected</p>
+            <br>
+            <h3>👤 Author</h3>
+            <p> <b> Danny Kamohelo Ntshala </b><br>
+               <b>Aspiring Cloud & DevOps Engineer </b></p>
+
+            </div>
+
+        <script src="javascript.js" charset="utf-8" ></script>
+
+</body>
+
+</html>
